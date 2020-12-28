@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = require('./config.json'); // Uses a seperate json file to store discord bot token- config.json is in gitignore so that the token isn't public on github
+const { prefix, token } = require('./config.json'); // Uses a seperate json file to store discord bot token- config.json is in gitignore so that the token isn't public on github
 
 client.commands = new Discord.Collection();
 
