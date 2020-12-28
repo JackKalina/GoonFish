@@ -18,10 +18,15 @@ module.exports = {
             num = Math.pow(num, skew);
             num *= max - min;
             num += min;
-            console.log(`Generated number: ${num}`);
             num = Math.floor(num);
+            console.log(`Generated number: ${num}`);
             return num;
         }
-        message.channel.send(`You caught **${generateNumber(0, 1000, 2.5)}** fish!`); // 0, 1000, 2.5 seems to give me the nicest balance of numbers
+        /* // This generates 100 random numbers in order to help check distribution 
+        for (let i = 0; i < 100; i++){
+            generateNumber(0, 1000, 3.5);
+        }
+        */
+        message.channel.send(`You caught **${generateNumber(0, 1000, 3.5)}** fish!`); // 0, 1000, 2.5 seems to give me the nicest balance of numbers
     }
 }
