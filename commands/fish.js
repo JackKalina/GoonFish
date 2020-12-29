@@ -1,7 +1,7 @@
 module.exports = {
     name: 'fish',
-    description: 'fish',
-    execute(message, args){
+    description: 'Fish for fish',
+    execute(message, args, db){
         function generateNumber(min,max,skew){ // This probably would have been a lot easier to figure out (and a lot less confusion and googling) if I had ever taken a stats class
             let u = 0, v = 0;                  // This is all applying a box-muller transform to give it a min, max, and skew
             while ( u === 0 ) {                // Shoutout to stackoverflow for helping me understand how this works
@@ -22,7 +22,8 @@ module.exports = {
             console.log(`Generated number: ${num}`);
             return num;
         }
-        /* // This generates 100 random numbers in order to help check distribution 
+        // This generates 100 random numbers in order to help check distribution. Uncomment it when you need to tweak balance.
+        /*  
         for (let i = 0; i < 100; i++){
             generateNumber(0, 1000, 3.5);
         }
