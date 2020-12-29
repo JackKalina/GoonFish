@@ -2,7 +2,7 @@ module.exports = {
     name: 'fish',
     description: 'fish',
     execute(message, args){
-        function generateNumber(min,max,skew){ // This probably would have been a lot easier to figure out (and a lot less confusion and googling) if I had ever taken a calc class
+        function generateNumber(min,max,skew){ // This probably would have been a lot easier to figure out (and a lot less confusion and googling) if I had ever taken a stats class
             let u = 0, v = 0;                  // This is all applying a box-muller transform to give it a min, max, and skew
             while ( u === 0 ) {                // Shoutout to stackoverflow for helping me understand how this works
                 u = Math.random();
