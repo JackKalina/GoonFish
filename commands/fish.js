@@ -28,6 +28,20 @@ module.exports = {
             generateNumber(0, 1000, 3.5);
         }
         */
+        let numFish = generateNumber(0, 1000, 3.5);
+        let userFish;
+        let userFishTime;
+        db.collection(`${message.guild.id}`).doc(`${message.member.id}`).get().then((q) => {
+            if (q.exists) {
+                userFish = q.data().totalFish;
+                userFishTime = q.data().lastFishTime;
+            } else {
+                db.collection(`${message.guild.id}`).doc(`${message.member.id}`).set({
+                    'totalFish': 0,
+                    'lastFishTime': 0
+                })
+            }
+        });
         message.channel.send(`You caught **${generateNumber(0, 1000, 3.5)}** fish!`); // 0, 1000, 2.5 seems to give me the nicest balance of numbers
     }
 }
