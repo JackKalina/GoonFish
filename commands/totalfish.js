@@ -9,9 +9,9 @@ module.exports = {
             } else {
                 userFish = q.data().totalFish;
                 if (message.member.nickname != null){
-                    message.channel.send(`${message.member.user.username}, you have caught ${userFish} fish!`);
+                    message.channel.send(`${message.member.nickname}, you have caught **${userFish}** fish!`);
                 } else {
-                    message.channel.send(`${message.member.nickname}, you have caught ${userFish} fish!`);
+                    message.channel.send(`${message.member.user.username}, you have caught **${userFish}** fish!`);
                 }
             }
         })
