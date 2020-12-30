@@ -4,7 +4,7 @@ module.exports = {
     execute(message, args, db) {
         let userFish;
         let cutArgs;
-        if (args == null){ // if the user just types /totalfish, it returns their total fish
+        if (args[0] == null){ // if the user just types /totalfish, it returns their total fish
             db.collection(`${message.guild.id}`).doc(`${message.member.id}`).get().then((q) =>{
                 if (!q.exists){
                     message.channel.send("You need to fish first! Use the fish command.");
