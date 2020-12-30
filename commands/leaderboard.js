@@ -8,7 +8,8 @@ module.exports = {
         let guildName = message.guild.name;
         let dictionary = {};
         let valuesArray = [];
-        
+        let guildPrefix;
+
         let embed = new MessageEmbed();
         embed.setTitle(`${guildName}'s fishing leaderboard (Top 10)`);
 
@@ -22,6 +23,8 @@ module.exports = {
                     } else {
                         dictionary[doc.data().totalFish] = `${doc.data().name}`;
                     }
+                } else if (doc.id === "guildInfo"){
+                    guildPrefix = doc.data().prefix;
                 } 
             })
         }
@@ -36,6 +39,9 @@ module.exports = {
             for (let i = valuesArray.length-1; i>-1; i--){
                 // Adding fields to embed message for each of the top 10
                 embed.addField(`${valuesArray.length - i}. ${dictionary[valuesArray[i]]}`, `${valuesArray[i]} fish`); 
+            }
+            if (valuesArray.length == 0){
+                embed.addField("No one has fished yet!", `Use ${guildPrefix}fish to fish.`)
             }
         }).then(() => {
             message.channel.send(embed);
