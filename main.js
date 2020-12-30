@@ -54,9 +54,9 @@ client.on('message', message => {
         }
     }).then(() =>{
         // Discord.js's prewritten command handling (with a few tweaks). If it ain't broke, don't fix it
-        if (!message.content.startsWith(config.prefix) || message.author.bot || message.channel.type === "dm") return;
+        if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === "dm") return;
 
-        const args = message.content.slice(config.prefix.length).split(/ +/);
+        const args = message.content.slice(prefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
 
         if (!client.commands.has(command)) return;
