@@ -66,6 +66,7 @@ module.exports = {
             } else {
                 let timeDiff = timeAtCall - userFishTime; 
                 message.channel.send(`Slow down! You can fish again in ${convertTime(3600000 - timeDiff)}.`);
+                message.react('🤡').then().catch(console.error);
             }
         });
         
