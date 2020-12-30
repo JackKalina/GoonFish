@@ -12,6 +12,7 @@ module.exports = {
 
         let embed = new MessageEmbed();
         embed.setTitle(`${guildName}'s fishing leaderboard (Top 10)`);
+        embed.setColor("ORANGE");
 
         async function getData(db) {
             const guildRef = db.collection(`${guildID}`);
