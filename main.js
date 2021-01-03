@@ -43,7 +43,10 @@ client.once('ready', () => {
     }).then(() => {
         console.log(`Currently serving ${serverCount} servers with ${userCount} total users.\n`);
     });
-    
+    client.user.setStatus('available');
+    client.user.setActivity("nature", {
+        type: "LISTENING"
+    });
 });
 
 client.on('message', message => {
@@ -65,7 +68,7 @@ client.on('message', message => {
             client.commands.get(command).execute(message, args, db);
         } catch (error) {
             console.error(error);
-            message.reply('There was an error trying to execute that command!');
+            message.reply('there was an error trying to execute that command!');
         }
 
     })
