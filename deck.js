@@ -1,12 +1,6 @@
-class Card {
-    constructor(number, suit, active = true){
-        this.number = number;
-        this.suit = suit;
-        this.active = active;
-    }
-}
+const Card = require('./card.js');
 
-class Deck {
+module.exports = class Deck {
     constructor(){
         this.activeCards = [];
         this.inactiveCards = [];
@@ -17,7 +11,8 @@ class Deck {
         let numbers = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
         for (let suit of suits){
             for (let number of numbers){
-                this.activeCards.push(new Card(number, suit));
+                let newCard = new Card(number, suit);
+                this.activeCards.push(newCard);
             }
         }
     }
@@ -28,5 +23,10 @@ class Deck {
         this.inactiveCards.push(card);
     }
 
-    
+    shuffle(){
+        for (let i = this.activeCards.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [this.activeCards[i], this.activeCards[j]] = [this.activeCards[j], this.activeCards[i]];
+        }
+    }
 }
