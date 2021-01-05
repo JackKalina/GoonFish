@@ -10,11 +10,14 @@ module.exports = {
                     message.channel.send("You need to fish first! Use the fish command.");
                 } else {
                     userFish = q.data().totalFish;
+                    message.reply(`you have caught a total of **${userFish}** fish!`);
+                    /*
                     if (message.member.nickname != null){
                         message.channel.send(`**${message.member.nickname}**, you have caught a total of **${userFish}** fish!`);
                     } else {
                         message.channel.send(`**${message.member.user.username}**, you have caught a total of **${userFish}** fish!`);
                     }
+                    */
                 }
             })
         } else if (args != null){ // if the user @s someone, it returns the @'d user's fish
@@ -30,11 +33,14 @@ module.exports = {
                     message.channel.send("That user has not fished yet, or that user does not exist!");
                 } else {
                     userFish = q.data().totalFish;
+                    message.channel.send(`${args} has caught a total of **${userFish}** fish!`);
+                    /*
                     if (q.data().nickname != null){
                         message.channel.send(`**${q.data().nickname}** has caught a total of **${userFish}** fish!`);
                     } else {
                         message.channel.send(`**${q.data().username}** has caught a total of **${userFish}** fish!`);
                     }
+                    */
                 }
             }) 
         }

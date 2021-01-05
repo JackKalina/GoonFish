@@ -3,6 +3,7 @@ module.exports = class Card {
         this.number = number;
         this.suit = suit;
         this.active = active;
+        this.value;
     }
 
     cardToString(){
@@ -38,6 +39,6 @@ module.exports = class Card {
             default:
                 stringNum = this.number;
         }
-        return `${stringNum}${stringSuit}`;
+        return `${this.number}${stringSuit}`;
     }
 }
