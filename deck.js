@@ -19,7 +19,7 @@ module.exports = class Deck {
 
     discardCard(card){
         card.active = false;
-        this.activeCards.pop(this.activeCards.indexOf(card));
+        this.activeCards.splice(this.activeCards.indexOf(card), 1);
         this.inactiveCards.push(card);
     }
 

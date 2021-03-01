@@ -34,13 +34,16 @@ module.exports = {
             for (let key in dictionary){
                 valuesArray.push(key); // Pushing all fish values into an array
             }
-            if (valuesArray.length > 10) { // Getting rid of all but the top 10
-                valuesArray.length = 10;
-            }
+            j = 0;
             for (let i = valuesArray.length-1; i>-1; i--){
                 // Adding fields to embed message for each of the top 10
                 embed.addField(`${valuesArray.length - i}. ${dictionary[valuesArray[i]]}`, `${valuesArray[i]} fish`); 
+                j++;
+                if (j > 9){
+                    break; // This stops it at 10 users for the top 10
+                }
             }
+            
             if (valuesArray.length == 0){
                 embed.addField("No one has fished yet!", `Use ${guildPrefix}fish to fish.`)
             }

@@ -3,11 +3,9 @@ module.exports = class Card {
         this.number = number;
         this.suit = suit;
         this.active = active;
-        this.value;
     }
 
     cardToString(){
-        let stringNum;
         let stringSuit;
         switch(this.suit){
             case "Spades":
@@ -23,22 +21,27 @@ module.exports = class Card {
                 stringSuit = "♦️";
                 break;
         }
+        return `${this.number}${stringSuit}`;
+    }
+
+    getValue() {
+        let value;
         switch (this.number){
             case "Jack":
-                stringNum = "J";
+                value = 10;
                 break;
             case "Queen":
-                stringNum = "Q";
+                value = 10;
                 break;
             case "King":
-                stringNum = "K";
+                value = 10;
                 break;
             case "Ace":
-                stringNum = "A";
+                value = 11;
                 break;
             default:
-                stringNum = this.number;
+                value = parseInt(this.number);
         }
-        return `${this.number}${stringSuit}`;
+        return value;
     }
 }
